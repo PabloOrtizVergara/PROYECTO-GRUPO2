@@ -1,0 +1,118 @@
+/* Estilos básicos para la página */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f1f5f8;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+    text-align: center;
+}
+
+/* Título principal */
+h1 {
+    font-size: 3em;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+/* Lista de Pokémon en un grid */
+.pokemon-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+/* Estilo de cada tarjeta de Pokémon */
+.pokemon-card {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #3498db;
+    height: 350px; /* Ajustamos el tamaño de la tarjeta */
+    background-size: cover; /* Asegura que la imagen cubra toda la tarjeta sin deformarse */
+    background-position: center center;
+    color: #fff; /* Texto blanco para que resalte sobre el fondo */
+    position: relative;
+    background-repeat: no-repeat; /* Asegura que la imagen no se repita */
+}
+
+/* Efecto al pasar el mouse */
+.pokemon-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+}
+
+/* Título del Pokémon */
+.pokemon-card h2 {
+    font-size: 2em;
+    color: #fff;
+    margin: 15px 0;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+/* Información adicional */
+.pokemon-card p {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+/* Enlace para ver más detalles */
+.pokemon-card a {
+    font-size: 1.2em;
+    color: #fff;
+    background-color: #3498db;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.pokemon-card a:hover {
+    background-color: #2980b9;
+}
+
+/* Añadir la foto de fondo de cada Pokémon */
+.pokemon-card img {
+    display: none; /* Aseguramos que no se muestre la imagen de forma repetida */
+}
+
+/* Estilos para las sombras de los nombres */
+.container h1 {
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Hacer la página más agradable en móviles */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    .pokemon-card {
+        padding: 15px;
+    }
+
+    .pokemon-card h2 {
+        font-size: 1.6em;
+    }
+
+    .pokemon-card p {
+        font-size: 1em;
+    }
+}
+

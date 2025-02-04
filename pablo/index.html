@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon API</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Pokémon</h1>
+        <div id="pokemon-list" class="pokemon-list">
+            <!-- Los Pokémon se agregarán aquí dinámicamente -->
+        </div>
+    </div>
+
+    <script>
+        // Obtener los Pokémon desde el servidor
+        fetch('/pokemons')
+            .then(response => response.json())
+            .then(pokemons => {
+                const pokemonListContainer = document.getElementById('pokemon-list');
+                pokemons.forEach(pokemon => {
+                    // Extraer la URL de la imagen
+                    const pokemonId = pokemon.id;
+                    const imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`;
+
+                    // Crear el contenedor de cada Pokémon
+                    const pokemonElement = document.createElement('div');
+                    pokemonElement.classList.add('pokemon-card');
+                    pokemonElement.style.backgroundImage = `url(${imageUrl})`;
+
+                    // Contenido de la tarjeta
+                    pokemonElement.innerHTML = `
+                        <h2>${pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</h2>
+                        <p>ID: ${pokemon.id}</p>
+                        <a href="${pokemon.url}" target="_blank">Ver detalles</a>
+                    `;
+                    pokemonListContainer.appendChild(pokemonElement);
+                });
+            })
+            .catch(error => {
+                console.error('Error al obtener los Pokémon:', error);
+            });
+    </script>
+</body>
+</html>
+
+
